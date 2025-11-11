@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <title>Devclub Convert Money</title>
+</head>
+
+<body>
+  <img class="logo" src="./assets/onversor.gif" alt="Money" />
+
+  <main>
+    <!-- FROM -->
+    <label class="texto" for="from-currency"><b>Converter de</b></label>
+    <select id="from-currency">
+      <option value="BRL" selected>R$ Real Brasileiro</option> <!-- MANTIDO: BRL padrão -->
+      <option value="USD">US$ Dólar Americano</option>         <!-- REMOVIDO "selected" duplicado -->
+      <option value="EUR">€ Euro</option>
+      <option value="GBP">£ Libra</option>
+      <option value="ARS">$AR Peso Argentino</option>
+    </select>
+
+    <!-- TO -->
+    <label class="texto" for="to-currency"><b>Para</b></label>
+    <select id="to-currency" class="currency-select">           <!-- ALTERAÇÃO: adicionado id="to-currency" -->
+      <option value="USD" selected>US$ Dólar Americano</option>  <!-- MANTIDO como destino padrão -->
+      <option value="EUR">€ Euro</option>
+      <option value="GBP">£ Libra</option>
+      <option value="ARS">$AR Peso Argentino</option>
+      <option value="BRL">R$ Real Brasileiro</option>            <!-- NOVO: BRL também como destino -->
+    </select>
+
+    <!-- AMOUNT -->
+    <label class="texto" for="amount"><b>Valor</b></label>
+    <input class="input-currency" id="amount" type="text" placeholder="10.000,00" /> <!-- ALTERAÇÃO: placeholder sem "R$" (deixamos o formato fazer isso) -->
+
+    <button class="convert-button">Converter</button>
+
+    <section>
+      <div class="currency-box">
+        <img src="./assets/square (2).png" alt="Moeda origem" />  <!-- TEXTO: alt mais genérico -->
+        <p class="currency" id="from-name">Real</p>               <!-- NOVO: id para atualizar nome da moeda de origem -->
+        <p class="currency-value-to-convert">R$ 0,00</p>
+      </div>
+
+      <img class="arrow" src="./assets/low-price.gif" alt="Seta" />
+
+      <div class="currency-box">
+        <img class="currency-img" src="./assets/usa (1).png" alt="Moeda destino" />
+        <p class="currency" id="currency-name">Dólar Americano</p> <!-- CORREÇÃO: ortografia "Dólar" -->
+        <p class="currency-value">US$ 0,00</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- IMPORTANTE: script único no final do body -->
+  <script src="./scripts.js"></script> <!-- ALTERAÇÃO: todo o JS saiu do <head> e fica só aqui -->
+</body>
+</html>
